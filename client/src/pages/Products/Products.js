@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import Pagination from '../components/Pagination'
+import Pagination from '../../components/Pagination/Pagination'
 import Axios from 'axios'
-import ProductCard from '../components/ProductCard'
-import { Container, FiltersContainer, SearchContainer, SearchBarButton, SelectContainer, Select } from '../styles/styles'
+import ProductCard from '../../components/Product/ProductCard'
+import { Container, FiltersContainer, SearchContainer, SearchBarButton, SelectContainer, Select } from './styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 

@@ -6,6 +6,6 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     background: teal;
     font-family: Open-Sans, Helvetica, Sans-Serif;
-    background-color: #f7f5ff;
+    background-color: #ebebff;
   }
 `;

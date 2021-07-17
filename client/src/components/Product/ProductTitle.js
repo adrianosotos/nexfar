@@ -1,4 +1,4 @@
-import { ButtonsContainer } from '../styles/styles'
+import { ButtonsContainer } from './styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBarcode, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 

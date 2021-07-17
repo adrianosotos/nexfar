@@ -1,5 +1,5 @@
-import { Card } from '../styles/styles'
-import QuantityProvider from '../context/Quantity'
+import { Card } from './styles'
+import QuantityProvider from '../../context/Quantity'
 import ProductDetails from './ProductDetails'
 import ProductTitle from './ProductTitle'
 

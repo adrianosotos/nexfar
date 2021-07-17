@@ -1,4 +1,4 @@
-import { PaginationList, PaginationButton, PaginationArrow } from '../styles/styles'
+import { PaginationList, PaginationButton, PaginationArrow } from './styles'
 
 const MAX_ITEMS = 3
 const MAX_LEFT = (MAX_ITEMS - 1) / 2

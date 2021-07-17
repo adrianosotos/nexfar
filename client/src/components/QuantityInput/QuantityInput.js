@@ -1,5 +1,5 @@
-import { useQuantity } from '../context/Quantity'
-import { Input } from '../styles/styles'
+import { useQuantity } from '../../context/Quantity'
+import { Input } from './style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 

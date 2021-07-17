@@ -1,6 +1,6 @@
-import { useQuantity } from '../context/Quantity'
-import { DataContainer, DataItem, NoStockLabel, InStockLabel, Tags } from '../styles/styles'
-import QuantityInput from "./QuantityInput";
+import { useQuantity } from '../../context/Quantity'
+import { DataContainer, DataItem, NoStockLabel, InStockLabel, Tags } from './styles'
+import QuantityInput from "../QuantityInput/QuantityInput";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faWarehouse, faMobile } from '@fortawesome/free-solid-svg-icons';
 
