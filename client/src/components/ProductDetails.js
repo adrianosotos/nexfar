@@ -1,45 +1,69 @@
-import { useState } from 'react'
+import { useQuantity } from '../context/Quantity'
+import { DataContainer, DataItem, NoStockLabel, InStockLabel, Tags } from '../styles/styles'
 import QuantityInput from "./QuantityInput";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faWarehouse, faMobile } from '@fortawesome/free-solid-svg-icons';
 
-function ProductDetails ({ img, base, price, availableQuantity }) {
-  const [total, setTotal] = useState(0)
+function ProductDetails ({ img, base, price = 0, availableQuantity, maker, category }) {
+  const { quantity, setQuantity } = useQuantity()
 
-  function onQuantityChange (newQuantity) {
-    const newTotal = (newQuantity * price).toFixed(2)
-    setTotal(newTotal)
+  function calculateTotal () {
+    return (quantity * price).toFixed(2)
   }
+
   return (
-    <div className="product-details">
-      <img src={img} />
-      <div className="product-info">
-        <table>
-          <thead>
-            <tr>
-              <th>Base</th>
-              <th>Estoque</th>
-              <th>Quantidade (un)</th>
-              <th>Valor</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="prices">
-                <span>{base}</span>
-                {price}
-              </td>
-              <td>{availableQuantity} un</td>
-              <td>
-                <QuantityInput 
-                  maxQuantity={availableQuantity}
-                  onQuantityChange={onQuantityChange}
-                />
-              </td>
-              <td>R$ {total}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <>
+      <DataContainer>
+        <img src={img} />
+        <DataItem>
+          <p>Base</p>
+          <p className="prices">
+            <span>{base}</span>
+            R$ {price}
+          </p>
+        </DataItem>
+        <DataItem>
+          <p>Estoque</p>
+          <p>
+            {
+              availableQuantity === 0 ?
+                (<NoStockLabel>
+                  <FontAwesomeIcon icon={faMobile} />
+                  <div className="labels">
+                    <p>SEM ESTOQUE</p>
+                    <button>AVISE-ME</button>
+                  </div>
+                </NoStockLabel>
+                ) : (
+                  <InStockLabel>
+                    <FontAwesomeIcon icon={faWarehouse} />
+                    <p>{`${availableQuantity} un`}</p>
+                  </InStockLabel>
+                )
+            }
+          </p>
+        </DataItem>
+        <DataItem>
+          <p>Quantidade (un)</p>
+          <p>
+            <QuantityInput 
+              maxQuantity={availableQuantity}
+            />
+          </p>
+        </DataItem> 
+        <DataItem>
+          <p>Valor</p>
+          <p>R$ {calculateTotal()}</p>
+        </DataItem>
+        <DataItem>
+          <FontAwesomeIcon onClick={() => setQuantity(0)} icon={faTrash} className="bin" />
+        </DataItem>
+      </DataContainer>
+      <Tags>
+        <p>{maker}</p>
+        <p>{category}</p>
+      </Tags>
+    </>
   )
 }
 
