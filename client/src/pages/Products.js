@@ -9,6 +9,7 @@ import { faSearch, faChevronLeft, faChevronRight } from '@fortawesome/free-solid
 function Products () {
   const [products, setProducts] = useState([])
   const [productPerPage, setProductPerPage] = useState(3)
+  const [typeSort, setTypeSort] = useState('asc')
   const [offset, setOffset] = useState(0)
 
   useEffect(() => {
@@ -20,13 +21,45 @@ function Products () {
 
   function getShownProducts () {
     const final = offset + productPerPage
-    const sliced = products.slice(offset, final)
+    const sliced = sortedProducts().slice(offset, final)
 
     return sliced
   }
 
   function handleQuantityPerPageChange (value) {
     setProductPerPage(Number(value))
+  }
+
+  function compareAsc(a, b) {
+    if ( a.name < b.name ){
+      return -1;
+    }
+    if ( a.name> b.name ){
+      return 1;
+    }
+    return 0;
+  }
+
+  function compareDsc(a, b) {
+    if ( a.name > b.name ){
+      return -1;
+    }
+    if ( a.name < b.name ){
+      return 1;
+    }
+    return 0;
+  }
+
+  function sortedProducts () {
+    if (typeSort === 'asc') {
+      return products.sort(compareAsc)
+    } else {
+      return products.sort(compareDsc)
+    }
+  }
+
+  function handleSortChange (value) {
+    setTypeSort(value)
   }
   
   return (
@@ -40,9 +73,9 @@ function Products () {
         </SearchContainer>
         <SelectContainer>
           <label>Ordenar por:</label>
-          <Select>
-            <option>Nome (A-Z)</option>
-            <option>Nome (Z-A)</option>
+          <Select onChange={(e) =>handleSortChange(e.target.value)}>
+            <option value="asc">Nome (A-Z)</option>
+            <option value="dsc">Nome (Z-A)</option>
           </Select>
         </SelectContainer>
         <SelectContainer>
