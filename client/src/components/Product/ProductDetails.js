@@ -7,7 +7,7 @@ import { faTrash, faWarehouse, faMobile } from '@fortawesome/free-solid-svg-icon
 
 function ProductDetails ({ img, base, price = 0, availableQuantity, maker, category, name, id }) {
   const { quantity, setQuantity } = useQuantity()
-  const { onQuantityAdded, onQuantityRemoved } = useCartHandler(id, price)
+  const { onQuantityAdded, onQuantityRemoved } = useCartHandler(id, price, name)
 
   function calculateTotal () {
     return (quantity * price).toFixed(2)
