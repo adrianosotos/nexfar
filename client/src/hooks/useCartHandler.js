@@ -40,7 +40,6 @@ export function useCartHandler (id, price, name) {
   }
 
   function onQuantityRemoved (quantity) {
-    debugger
     const totalPrice = quantity * price
 
     if (totalPrice === 0) {

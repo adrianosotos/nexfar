@@ -11,6 +11,7 @@ export const Card = styled.div`
   .product-title {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid #ccc;
 
     .sku-tag {
       background-color: #301b2c;
@@ -86,6 +87,7 @@ export const DataItem = styled.div`
 
     span {
       font-weight: bold;
+      font-size: 12px;
     }
   }
 
@@ -124,15 +126,17 @@ export const InStockLabel = styled.div`
   position: relative;
   bottom: 10px;
   padding: 0px 30px;
+  left: 7px;
 
   p {
     margin-left: 10px;
+    font-size: 12px;
   }
 `
 
 export const Tags = styled.div`
   display: flex;
-  border-top: 1px solid #000000;
+  border-top: 1px solid #ccc;
   width: 70%;
   margin: 0 0 0 200px;
 
@@ -144,4 +148,10 @@ export const Tags = styled.div`
     border-radius: 20px;
     font-size: 12px;
   }
+`
+
+export const Title = styled.p`
+  font-size: 12px;
+  color: #726667;
+  font-weight: 500;
 `

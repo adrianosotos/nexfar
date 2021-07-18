@@ -3,10 +3,12 @@ import styled from 'styled-components'
 export const PaginationList = styled.ul`
   display: flex;
   list-style: none;
+  position: relative;
+  left: 25px;
 `
 
 export const PaginationButton = styled.li`
-    margin-left: 2px;
+    margin: 0 8px;
 
     button {
       border: none;

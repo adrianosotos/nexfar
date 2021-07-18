@@ -1,16 +1,22 @@
 import { useQuantity } from '../../context/Quantity'
 import { useCartHandler } from '../../hooks/useCartHandler'
-import { DataContainer, DataItem, NoStockLabel, InStockLabel, Tags } from './styles'
+import { DataContainer, DataItem, NoStockLabel, InStockLabel, Tags, Title } from './styles'
 import QuantityInput from "../QuantityInput/QuantityInput";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faWarehouse, faMobile } from '@fortawesome/free-solid-svg-icons';
+import { brazilianRealMask } from '../../utils/utils'
 
 function ProductDetails ({ img, base, price = 0, availableQuantity, maker, category, name, id }) {
   const { quantity, setQuantity } = useQuantity(id)
   const { onQuantityAdded, onQuantityRemoved } = useCartHandler(id, price, name)
 
   function calculateTotal () {
-    return (quantity * price).toFixed(2)
+    return brazilianRealMask(quantity * price)
+  }
+
+  function removeProduct () {
+    onQuantityRemoved(0)
+    setQuantity(0)
   }
 
   return (
@@ -18,14 +24,14 @@ function ProductDetails ({ img, base, price = 0, availableQuantity, maker, categ
       <DataContainer>
         <img src={img} />
         <DataItem>
-          <p>Base</p>
+          <Title>Base</Title>
           <p className="prices">
             <span>{base}</span>
-            R$ {price}
+            {brazilianRealMask(price)}
           </p>
         </DataItem>
         <DataItem>
-          <p>Estoque</p>
+          <Title>Estoque</Title>
           <p>
             {
               availableQuantity === 0 ?
@@ -46,7 +52,7 @@ function ProductDetails ({ img, base, price = 0, availableQuantity, maker, categ
           </p>
         </DataItem>
         <DataItem>
-          <p>Quantidade (un)</p>
+          <Title>Quantidade (un)</Title>
           <p>
             <QuantityInput 
               maxQuantity={availableQuantity}
@@ -57,11 +63,11 @@ function ProductDetails ({ img, base, price = 0, availableQuantity, maker, categ
           </p>
         </DataItem> 
         <DataItem>
-          <p>Valor</p>
-          <p>R$ {calculateTotal()}</p>
+          <Title>Valor</Title>
+          <p>{calculateTotal()}</p>
         </DataItem>
         <DataItem>
-          <FontAwesomeIcon onClick={() => setQuantity(0)} icon={faTrash} className="bin" />
+          <FontAwesomeIcon onClick={removeProduct} icon={faTrash} className="bin" />
         </DataItem>
       </DataContainer>
       <Tags>

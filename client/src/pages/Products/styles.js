@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 64%;
   height: 92vh;
-  border-right: solid 1px #ccc;
   margin: auto;
 `
 
@@ -16,6 +15,7 @@ export const FiltersContainer = styled.div`
 
 export const SearchContainer = styled.div`
   display: flex;
+
   svg {
     color: #ffffff;
     background-color: #68007e;
@@ -30,6 +30,8 @@ export const SearchContainer = styled.div`
     background-color: #e9d9f2;
     color: #301b2c;
     width: 400px;
+    position: relative;
+    right: 72px;
   }
 
   input:focus {
@@ -51,8 +53,9 @@ export const SearchBarButton = styled.div`
   color: #e8dff3;
   cursor: pointer;
   position: relative;
-  left: 34px;
+  right: 37px;
   bottom: 3px;
+  z-index: 2;
 `
 
 export const SelectContainer = styled.div`
