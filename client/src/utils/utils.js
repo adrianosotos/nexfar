@@ -23,3 +23,19 @@ export function getCartItemsFromLocalStorage () {
 
   return cartData
 }
+
+export function cnpjMask (value) {
+  if (!value) {
+    return
+  }
+
+  let stringValue = value.toString()
+
+  stringValue=stringValue.replace(/\D/g,"")
+  stringValue=stringValue.replace(/^(\d{2})(\d)/,"$1.$2")
+  stringValue=stringValue.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
+  stringValue=stringValue.replace(/\.(\d{3})(\d)/,".$1/$2")
+  stringValue=stringValue.replace(/(\d{4})(\d)/,"$1-$2")
+    
+  return stringValue
+}

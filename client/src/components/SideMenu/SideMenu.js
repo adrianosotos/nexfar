@@ -1,15 +1,18 @@
 import { Container, StoreData, MenuContainer } from './style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStore, faChevronRight, faFire, faBox, faReceipt, faTicketAlt, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { useUser } from '../../context/User'
+import { cnpjMask } from '../../utils/utils'
 
 function SideMenu () {
+  const { user } = useUser()
   return (
     <Container>
       <StoreData>
         <FontAwesomeIcon icon={faStore} size="lg"/>
         <div>
-          <p>Farmacia da Ilha</p>
-          <p>00.000.000/0000-00</p>
+          <p>{user.name}</p>
+          <p>{cnpjMask(user.cnpj)}</p>
         </div>
         <span className="arrow"><FontAwesomeIcon icon={faChevronRight} /></span>
       </StoreData>

@@ -16,7 +16,6 @@ export function useQuantity (productId) {
   const context = useContext(QuantityContext)
   const { quantity, setQuantity } = context
 
-  debugger
   const cachedQuantity = getCartItemsFromLocalStorage().reduce((quantity, item) => {
     if (item.id === productId) {
       quantity = item.quantity
