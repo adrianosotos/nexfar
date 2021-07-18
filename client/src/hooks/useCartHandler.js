@@ -21,10 +21,12 @@ export function useCartHandler (id, price, name) {
     const totalPrice = quantity * price
 
     if (isProductOnCart(id)) {
+      localStorage.setItem(id, JSON.stringify({ id, name, price: totalPrice, quantity, label: 'cart-item'}))
       return setCartItems(updateTotalPrice(totalPrice))
     }
 
-    return setCartItems([...cartItems, { id, name, price: totalPrice }])
+    localStorage.setItem(id, JSON.stringify({ id, name, price: totalPrice, quantity, label: 'cart-item'}))
+    return setCartItems([...cartItems, { id, name, price: totalPrice, quantity, label: 'cart-item' }])
   }
 
   function removeItemFromCart (id) {
@@ -43,9 +45,11 @@ export function useCartHandler (id, price, name) {
 
     if (totalPrice === 0) {
       const updatedCart = removeItemFromCart(id)
+      localStorage.removeItem(id)
       return setCartItems(updatedCart)
     }
 
+    localStorage.setItem(id, JSON.stringify({ id, name, price: totalPrice, quantity, label: 'cart-item' }))
     return setCartItems(updateTotalPrice(totalPrice))
   }
 

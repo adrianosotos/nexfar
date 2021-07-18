@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faWarehouse, faMobile } from '@fortawesome/free-solid-svg-icons';
 
 function ProductDetails ({ img, base, price = 0, availableQuantity, maker, category, name, id }) {
-  const { quantity, setQuantity } = useQuantity()
+  const { quantity, setQuantity } = useQuantity(id)
   const { onQuantityAdded, onQuantityRemoved } = useCartHandler(id, price, name)
 
   function calculateTotal () {
@@ -52,6 +52,7 @@ function ProductDetails ({ img, base, price = 0, availableQuantity, maker, categ
               maxQuantity={availableQuantity}
               onQuantityAdded={onQuantityAdded}
               onQuantityRemoved={onQuantityRemoved}
+              productId={id}
             />
           </p>
         </DataItem> 

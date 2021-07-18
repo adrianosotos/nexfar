@@ -3,8 +3,8 @@ import { Input } from './style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-function QuantityInput ({ maxQuantity, onQuantityAdded, onQuantityRemoved }) {
-  const { quantity, setQuantity } = useQuantity()
+function QuantityInput ({ maxQuantity, onQuantityAdded, onQuantityRemoved, productId }) {
+  const { quantity, setQuantity } = useQuantity(productId)
   
   function handleQuantityChange (type) {
     if (type === 'plus' && quantity < maxQuantity) {

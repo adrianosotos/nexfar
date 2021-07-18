@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext } from 'react'
+import { getCartItemsFromLocalStorage } from '../utils/utils'
 
 const QuantityContext = createContext()
 
@@ -11,9 +12,20 @@ export default function QuantityProvider ({ children }) {
   )
 }
 
-export function useQuantity () {
+export function useQuantity (productId) {
   const context = useContext(QuantityContext)
   const { quantity, setQuantity } = context
 
-  return { quantity, setQuantity }
+  debugger
+  const cachedQuantity = getCartItemsFromLocalStorage().reduce((quantity, item) => {
+    if (item.id === productId) {
+      quantity = item.quantity
+    }
+
+    return quantity
+  }, 0)
+
+  const updatedQuantity = cachedQuantity || quantity
+
+  return { quantity: updatedQuantity, setQuantity }
 }
