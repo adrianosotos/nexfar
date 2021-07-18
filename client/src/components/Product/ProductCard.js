@@ -19,6 +19,8 @@ function ProductCard ({ productData }) {
             availableQuantity={productData.quantityAvailable}
             maker={productData.maker}
             category={productData.category}
+            name={productData.name}
+            id={productData.id}
           />
         </QuantityProvider>
       </Card>

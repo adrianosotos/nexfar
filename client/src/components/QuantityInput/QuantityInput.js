@@ -3,17 +3,19 @@ import { Input } from './style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-function QuantityInput ({ maxQuantity }) {
+function QuantityInput ({ maxQuantity, onQuantityAdded, onQuantityRemoved }) {
   const { quantity, setQuantity } = useQuantity()
   
   function handleQuantityChange (type) {
     if (type === 'plus' && quantity < maxQuantity) {
       const newQuantity = +quantity + 1
       setQuantity(newQuantity)
+      onQuantityAdded(newQuantity)
 
     } else if (type === 'minus' && quantity > 0) {
       const newQuantity = +quantity - 1
       setQuantity(newQuantity)
+      onQuantityRemoved(newQuantity)
     }
   }
 

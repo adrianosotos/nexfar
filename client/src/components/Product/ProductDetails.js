@@ -1,11 +1,13 @@
 import { useQuantity } from '../../context/Quantity'
+import { useCartHandler } from '../../hooks/useCartHandler'
 import { DataContainer, DataItem, NoStockLabel, InStockLabel, Tags } from './styles'
 import QuantityInput from "../QuantityInput/QuantityInput";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faWarehouse, faMobile } from '@fortawesome/free-solid-svg-icons';
 
-function ProductDetails ({ img, base, price = 0, availableQuantity, maker, category }) {
+function ProductDetails ({ img, base, price = 0, availableQuantity, maker, category, name, id }) {
   const { quantity, setQuantity } = useQuantity()
+  const { onQuantityAdded, onQuantityRemoved } = useCartHandler(id, price)
 
   function calculateTotal () {
     return (quantity * price).toFixed(2)
@@ -48,6 +50,8 @@ function ProductDetails ({ img, base, price = 0, availableQuantity, maker, categ
           <p>
             <QuantityInput 
               maxQuantity={availableQuantity}
+              onQuantityAdded={onQuantityAdded}
+              onQuantityRemoved={onQuantityRemoved}
             />
           </p>
         </DataItem> 
