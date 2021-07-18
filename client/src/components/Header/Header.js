@@ -1,9 +1,12 @@
 import { HeaderContainer, DataContainer } from './style'
+import { useCart } from '../../context/Cart'
 import logo from '../../assets/Nexfar.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBell, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 function Header () {
+    const { formattedTotal } = useCart()
+  
     return (
       <HeaderContainer>
         <img src={logo} />
@@ -11,7 +14,7 @@ function Header () {
           <p>NEXFAR</p>
           <p>
             <span><FontAwesomeIcon icon={faShoppingCart} /></span>
-            R$ 450,00
+              {formattedTotal}
           </p>
           <p>Pedido mínimo R$ 150,00</p>
         </DataContainer>
