@@ -11,8 +11,8 @@ function SideMenu () {
       <StoreData>
         <FontAwesomeIcon icon={faStore} size="lg"/>
         <div>
-          <p>{user.name}</p>
-          <p>{cnpjMask(user.cnpj)}</p>
+          <p>{user?.name}</p>
+          <p>{cnpjMask(user?.cnpj)}</p>
         </div>
         <span className="arrow"><FontAwesomeIcon icon={faChevronRight} /></span>
       </StoreData>
