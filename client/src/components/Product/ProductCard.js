@@ -21,6 +21,7 @@ function ProductCard ({ productData }) {
             category={productData.category}
             name={productData.name}
             id={productData.id}
+            taxes={productData.price?.taxes}
           />
         </QuantityProvider>
       </Card>

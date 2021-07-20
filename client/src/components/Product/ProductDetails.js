@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faWarehouse, faMobile } from '@fortawesome/free-solid-svg-icons';
 import { brazilianRealMask } from '../../utils/utils'
 
-function ProductDetails ({ img, base, price = 0, availableQuantity, maker, category, name, id }) {
+function ProductDetails ({ img, base, price = 0, availableQuantity, maker, category, name, id, taxes }) {
   const { quantity, setQuantity } = useQuantity(id)
-  const { onQuantityAdded, onQuantityRemoved } = useCartHandler(id, price, name)
+  const { onQuantityAdded, onQuantityRemoved } = useCartHandler(id, price, name, taxes)
 
   function calculateTotal () {
     return brazilianRealMask(quantity * price)
@@ -22,7 +22,7 @@ function ProductDetails ({ img, base, price = 0, availableQuantity, maker, categ
   return (
     <>
       <DataContainer>
-        <img src={img} />
+        <img alt="product" src={img} />
         <DataItem>
           <Title>Base</Title>
           <p className="prices">
