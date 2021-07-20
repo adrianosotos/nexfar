@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
     display: flex;
@@ -46,6 +47,12 @@ export const DataContainer = styled.div`
   .minimal-purchase-label {
     font-size: 10px;
   }
+
+  a {
+    text-decoration: none;
+    color: #000000;
+    margin-left: auto;
+  }
 `
 
 export const AvatarImage = styled.img`
@@ -68,3 +75,9 @@ export const UserContainer = styled.div`
     margin: 0 25px;
   }
 `
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: #000000;
+    margin-left: auto;
+`;
+
