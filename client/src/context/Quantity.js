@@ -14,7 +14,7 @@ export default function QuantityProvider ({ children }) {
 
 export function useQuantity (productId) {
   const context = useContext(QuantityContext)
-  const { quantity, setQuantity } = context
+  const { setQuantity } = context
 
   const cachedQuantity = getCartItemsFromLocalStorage().reduce((quantity, item) => {
     if (item.id === productId) {

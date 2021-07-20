@@ -101,7 +101,6 @@ export function useCart (id, price, name, taxes) {
   const formattedTotal = brazilianRealMask(cartTotal)
   const formattedTotalDiscounts = brazilianRealMask(totalDiscounts)
   const formattedFinalPrice = brazilianRealMask(finalPrice)
-  const quantity = getQuantity(id)
 
   return { 
     cartItems,
