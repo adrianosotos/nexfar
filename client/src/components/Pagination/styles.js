@@ -5,6 +5,7 @@ export const PaginationList = styled.ul`
   list-style: none;
   position: relative;
   left: 25px;
+  padding-bottom: 100px;
 `
 
 export const PaginationButton = styled.li`
