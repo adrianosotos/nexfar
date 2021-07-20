@@ -24,7 +24,7 @@ export function useQuantity (productId) {
     return quantity
   }, 0)
 
-  const updatedQuantity = cachedQuantity || quantity
+  const updatedQuantity = cachedQuantity
 
   return { quantity: updatedQuantity, setQuantity }
 }
