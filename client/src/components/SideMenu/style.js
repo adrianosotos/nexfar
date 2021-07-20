@@ -39,10 +39,18 @@ export const MenuContainer = styled.div`
     list-style: none;
     padding: 10px;
     cursor: pointer;
-    color: #b8b8b8;
     font-weight: 800;
     width: 120%;
     border-radius: 19px;
+
+    a {
+      text-decoration: none;
+      color: #3cba92;
+    }
+
+    a:visited {
+      text-decoration: none;
+    }
   }
 
   svg {

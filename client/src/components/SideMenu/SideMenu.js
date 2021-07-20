@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStore, faChevronRight, faFire, faBox, faReceipt, faTicketAlt, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { useUser } from '../../context/User'
 import { cnpjMask } from '../../utils/utils'
+import { Link } from 'react-router-dom'
 
 function SideMenu () {
   const { user } = useUser()
@@ -24,8 +25,10 @@ function SideMenu () {
             Promoções
           </li>
           <li className="active">
-          <span><FontAwesomeIcon icon={faBox} /></span>
-            Produtos
+          <Link to="/">
+            <span><FontAwesomeIcon icon={faBox} /></span>
+              Produtos
+          </Link>
           </li>
           <li>
             <span><FontAwesomeIcon icon={faReceipt} /></span>
