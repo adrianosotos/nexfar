@@ -1,9 +1,7 @@
-import { GlobalStyles, Container } from './styles/globalStyles'
-import Header from './components/Header/Header'
-import Products from './pages/Products/Products'
+import { GlobalStyles } from './styles/globalStyles'
 import CartProvider from './context/Cart'
 import UserProvider from './context/User'
-import SideMenu from './components/SideMenu/SideMenu'
+import AppRouter from './router/AppRouter'
 
 function App() {
   return (
@@ -11,11 +9,7 @@ function App() {
       <UserProvider>
         <CartProvider>
           <GlobalStyles />
-          <Header />
-          <Container>
-            <SideMenu />
-            <Products />
-          </Container>
+          <AppRouter />
         </CartProvider>
       </UserProvider>
     </div>
