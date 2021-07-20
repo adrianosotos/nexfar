@@ -80,4 +80,3 @@ export const StyledLink = styled(Link)`
     color: #000000;
     margin-left: auto;
 `;
-
