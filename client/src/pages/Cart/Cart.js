@@ -3,11 +3,11 @@ import { CartHeader, CheckoutButton, Container, ClearCartButton, StyledLink, Tab
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faArrowRight, faTrash } from '@fortawesome/free-solid-svg-icons';
 import CartSummary from '../../components/CartSummary/CartSummary'
-import { useCartHandler } from '../../hooks/useCartHandler'
+import { useCart } from '../../context/Cart'
 
 function Cart () {
   const [activeTab, setActiveTab] = useState('summary')
-  const { emptyCart } = useCartHandler()
+  const { emptyCart } = useCart()
 
   function switchTabs () {
     if (activeTab === 'summary') {

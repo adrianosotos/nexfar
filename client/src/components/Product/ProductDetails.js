@@ -1,5 +1,5 @@
 import { useQuantity } from '../../context/Quantity'
-import { useCartHandler } from '../../hooks/useCartHandler'
+import { useCart } from '../../context/Cart'
 import { DataContainer, DataItem, NoStockLabel, InStockLabel, Tags, Title } from './styles'
 import QuantityInput from "../QuantityInput/QuantityInput";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,7 +8,7 @@ import { brazilianRealMask } from '../../utils/utils'
 
 function ProductDetails ({ img, base, price = 0, availableQuantity, maker, category, name, id, taxes }) {
   const { quantity, setQuantity } = useQuantity(id)
-  const { onQuantityAdded, onQuantityRemoved } = useCartHandler(id, price, name, taxes)
+  const { onQuantityAdded, onQuantityRemoved } = useCart(id, price, name, taxes)
 
   function calculateTotal () {
     return brazilianRealMask(quantity * price)
