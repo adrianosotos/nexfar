@@ -24,8 +24,19 @@ export function useCart () {
     }, 0)
   }
 
-  const cartTotal = calculateCartTotal()
-  const formattedTotal = brazilianRealMask(cartTotal)
+  function calculateTotalDiscount () {
+    return cartItems.reduce((total, item) => {
+      total = total + item.taxes
+      return total
+    }, 0)
+  }
 
-  return { cartItems, setCartItems, cartTotal, formattedTotal }
+  const cartTotal = calculateCartTotal()
+  const totalDiscounts = calculateTotalDiscount()
+  const finalPrice = cartTotal + totalDiscounts
+  const formattedTotal = brazilianRealMask(cartTotal)
+  const formattedTotalDiscounts = brazilianRealMask(totalDiscounts)
+  const formattedFinalPrice = brazilianRealMask(finalPrice)
+
+  return { cartItems, setCartItems, cartTotal, formattedTotal, totalDiscounts, formattedTotalDiscounts, formattedFinalPrice }
 }
