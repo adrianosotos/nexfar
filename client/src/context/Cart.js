@@ -95,14 +95,6 @@ export function useCart (id, price, name, taxes) {
     }, 0)
   }
 
-  function getQuantity (id) {
-    return cartItems.reduce((total, item) => {
-      if (item.id === id) {
-        total = total + item.quantity
-      }
-    }, 0)
-  }
-
   const cartTotal = calculateCartTotal()
   const totalDiscounts = calculateTotalDiscount()
   const finalPrice = cartTotal + totalDiscounts
@@ -121,7 +113,6 @@ export function useCart (id, price, name, taxes) {
     formattedFinalPrice,
     onQuantityAdded,
     onQuantityRemoved,
-    emptyCart,
-    quantity
+    emptyCart
   }
 }
