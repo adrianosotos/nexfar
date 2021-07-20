@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 18%;
+  min-width: 300px;
   height: 100vh;
   background-color: #fff;
   padding: 18px;
@@ -29,6 +29,10 @@ export const MenuContainer = styled.div`
   margin: 20px;
   h4 {
     font-weight: bold;
+  }
+
+  ul {
+    padding: 0;
   }
 
   li {
