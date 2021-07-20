@@ -5,7 +5,7 @@ import Axios from 'axios'
 import ProductCard from '../../components/Product/ProductCard'
 import { Container, FiltersContainer, SearchContainer, SearchBarButton, SelectContainer, Select } from './styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 function Products () {
   const [products, setProducts] = useState([])
